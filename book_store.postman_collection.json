@@ -1,0 +1,342 @@
+{
+  "info": {
+    "_postman_id": "bf03a685-488c-4a84-b361-eaaf25de15e2",
+    "name": "Book Store",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39647105"
+  },
+  "item": [
+    {
+      "name": "Searching, Filtering, Ordering and Pagination",
+      "item": [
+        {
+          "name": "Filter by Author",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/books/?author=J.K.%20Rowling",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "books",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "author",
+                  "value": "J.K.%20Rowling"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search by Title",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/books/?search=Harry",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "books",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Harry"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Order by Price",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/books/?ordering=-price",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "books",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "ordering",
+                  "value": "-price"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pagination",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/books/?page=1",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "books",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Book CRUD",
+      "item": [
+        {
+          "name": "Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/books/",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "books",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Book",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "Token b7268197a05c0eeb6e21779c62fb076191b15f4c",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K. Rowling\",\r\n    \"price\": \"25.99\",\r\n    \"published_date\": \"1997-06-26\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/books/",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "books",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "Token b7268197a05c0eeb6e21779c62fb076191b15f4c",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/books/1/",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "books",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "Token b7268197a05c0eeb6e21779c62fb076191b15f4c",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/books/1/",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "books",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"wasifibnharun\",\r\n    \"password\": \"wasif12345\",\r\n    \"email\": \"wasifibnharun@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/register/",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"wasifibnharun\",\r\n    \"password\": \"wasif12345\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/login/",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "login",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BaseURL",
+      "value": ""
+    }
+  ]
+}
