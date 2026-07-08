@@ -6,7 +6,7 @@ A simple Book Store REST API built using Django REST Framework (DRF) with token 
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-github-repo-url>
+   git clone https://github.com/wasifibnharun/ostad-django-m23-assignment.git
    cd book-store
    ```
 
